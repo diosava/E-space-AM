@@ -21,15 +21,15 @@ function initThreeJS() {
     container.appendChild(renderer.domElement);
 
     // 2. Uniforms (Data passed to shader)
-    const uniforms = {
-        uTime: { value: 0 },
-        uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
-        uMouse: { value: new THREE.Vector2(0.5, 0.5) },
-        uColor1: { value: new THREE.Color(0x0b0c10) }, // Dark BG
-        uColor2: { value: new THREE.Color(0x00444f) }, // Deep Teal
-        uColor3: { value: new THREE.Color(0x45f3ff) }, // Electric Blue
-        uColor4: { value: new THREE.Color(0x66ff00) }  // Green
-    };
+ const uniforms = {
+    uTime: { value: 0 },
+    uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+    uMouse: { value: new THREE.Vector2(0.5, 0.5) },
+    uColor1: { value: new THREE.Color(0x05070a) }, // Deep Obsidian (Blacker)
+    uColor2: { value: new THREE.Color(0x002a32) }, // Dark Petrol Blue
+    uColor3: { value: new THREE.Color(0x006b7a) }, // Muted Electric Teal
+    uColor4: { value: new THREE.Color(0x1a3c34) }  // Forest/Deep Charging Green
+};
 
     // 3. Custom Shader Material (Grainy Energy Flow)
     const material = new THREE.ShaderMaterial({
@@ -174,4 +174,5 @@ function initGSAP() {
         ease: 'power3.out',
         delay: 1
     });
+
 }
