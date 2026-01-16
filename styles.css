@@ -1,0 +1,207 @@
+:root {
+    --bg-color: #0b0c10;
+    --text-color: #e0e0e0;
+    --accent-blue: #45f3ff;
+    --accent-green: #66ff00;
+    --font-head: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- WebGL Container --- */
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1; /* Puts canvas behind content */
+    opacity: 0; /* Handled by GSAP fade in */
+}
+
+/* --- Navigation --- */
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    mix-blend-mode: difference; /* Makes text visible on light/dark areas */
+}
+
+.logo {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.05em;
+    color: white;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    margin-left: 2rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+.btn-small {
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 4rem;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+h1 {
+    font-family: var(--font-head);
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #fff, #a5a5a5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+    opacity: 0.8;
+}
+
+/* --- Buttons --- */
+.cta-group {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+.btn-secondary {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--text-color);
+    backdrop-filter: blur(5px);
+}
+
+.btn-primary:hover {
+    background: var(--accent-blue);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px rgba(69, 243, 255, 0.4);
+}
+
+/* --- Stats Section --- */
+.stats {
+    background: rgba(11, 12, 16, 0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.stat-item h3 {
+    font-family: var(--font-head);
+    font-size: 2.5rem;
+    color: var(--accent-green);
+    margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-color);
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+/* --- Scroll Indicator --- */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    right: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.scroll-indicator span {
+    writing-mode: vertical-rl;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    opacity: 0.6;
+}
+
+.line {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.3);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .nav { padding: 1.5rem 2rem; }
+    .hero { padding: 0 2rem; }
+    .stats { flex-direction: column; gap: 2rem; text-align: center; }
+    .scroll-indicator { display: none; }
+}
